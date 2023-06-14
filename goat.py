@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 import subprocess
 import giturlparse
-
+AWS_KEY = "AKIAIOSFODNN7EXAMPLE"
 app = FastAPI(
     title="Goat API - AppSec Proof",
     version="0.0.1",
