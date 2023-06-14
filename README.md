@@ -14,3 +14,5 @@ docker build -t api_goat:latest .
 docker run --rm -d -p 8080:8080 api_goat:latest
 curl http://127.0.0.1:8080/openapi.json
 ```
+
+To view OpenAPI interface, access `http://127.0.0.1:8080/docs`
