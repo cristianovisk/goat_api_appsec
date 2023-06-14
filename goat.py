@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 import subprocess
 import giturlparse
-PASSWORD = "P@$$w0rd!L3@k3d"
+
 app = FastAPI(
     title="Goat API - AppSec Proof",
     version="0.0.1",
