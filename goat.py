@@ -14,13 +14,13 @@ app = FastAPI(
     )
 
 @app.get('/epoch')
-def os(num):
+def epoch_converter(num=1686707709):
     proc = subprocess.Popen(f'date -d @{num}', stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
     return {"date": out}
 
 @app.get('/hello_world')
-def hello(msg="hello_world"):
+def hello_world(msg="hello_world"):
     if msg == "hello_world":
         return {"msg": "hello_world"}
     else:
