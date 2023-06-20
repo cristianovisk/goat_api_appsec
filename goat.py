@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 import io
+import urllib3
 from starlette.responses import StreamingResponse
 import uuid
 import os
@@ -31,14 +32,19 @@ def hello_world(msg="hello_world"):
         return {"msg": "hello_world"}
     else:
         return {"msg": msg, "error": "not_hello_world"}
-    
-@app.get('/return_photo')
-def return_photo(filename):
+
+@app.get('/return_photo_remote')
+def return_photo_remote(url):
+    bin = requests.get(url=url).content
+    return StreamingResponse(io.BytesIO(bin))
+                             
+@app.get('/return_photo_local')
+def return_photo_local(filename):
     files_types = ['jpg', 'png', 'svg']
     if filename[-3:] == files_types[0] or filename[-3:] == files_types[1] or filename[-3:] == files_types[2]:
         ext = filename[-3:]
         with open(f'photos/{filename}', 'rb') as file:
-            return StreamingResponse(io.BytesIO(file.read()), media_type=f"image/{ext}")
+            return StreamingResponse(io.BytesIO(file.read()))
     else:
         return {"status": "error", "msg": "invalid format file", "files_types": files_types}
     
