@@ -1,0 +1,16 @@
+{
+  "version": "2.1.2",
+  "summary": {
+    "title": "API Teste",
+    "owner": "Cris",
+    "description": "teste",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "diagramTop": 1,
+    "reviewer": "Henrique",
+    "threatTop": 0
+  }
+}
